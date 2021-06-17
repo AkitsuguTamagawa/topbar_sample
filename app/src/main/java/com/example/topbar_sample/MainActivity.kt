@@ -24,10 +24,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             Topbar_sampleTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(color = MaterialTheme.colors.background) {
-                    TopBar("Android")
-                }
+                TopBar("Android")
             }
         }
     }
@@ -37,13 +34,13 @@ class MainActivity : ComponentActivity() {
 fun TopBar(name: String) {
     Column {
         TopAppBar(
-            title = {
-                Text(text = name, maxLines = 2)
-            },
             navigationIcon = {
                 IconButton(onClick = { /*doSomething*/ }) {
                     Icon(Icons.Filled.ArrowBack, contentDescription = null)
                 }
+            },
+            title = {
+                Text(text = name, maxLines = 2)
             },
             actions = {
                 IconButton(onClick = { /*doSomething*/ }) {
@@ -54,25 +51,9 @@ fun TopBar(name: String) {
                 }
             }
         )
-        Button(onClick = {}){
-            Row() {
-                Text(text = "test")
-                Modifier.padding(4.dp)
-            }
-
-        }
     }
 }
 
-
-@Composable
-fun ButtonExample() {
-    Button(onClick = { /* Do something! */ }, colors = ButtonDefaults.textButtonColors(
-        backgroundColor = Color.Red
-    )) {
-        Text("Button")
-    }
-}
 
 @Preview(showBackground = true)
 @Composable
